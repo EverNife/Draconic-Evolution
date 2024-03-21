@@ -6,6 +6,7 @@ import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Random;
 
+import br.com.finalcraft.draconicevolution.armors.FinalCraftArmors;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.entity.EntityPlayerSP;
@@ -134,6 +135,8 @@ public class MinecraftForgeEventHandler {
     @SubscribeEvent
     public void onLivingHurt(LivingHurtEvent event) {
         if (event.entityLiving instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer) event.entityLiving;
+            FinalCraftArmors.manageArmorProtection(event,player);
             CustomArmorHandler.onPlayerHurt(event);
         }
     }
