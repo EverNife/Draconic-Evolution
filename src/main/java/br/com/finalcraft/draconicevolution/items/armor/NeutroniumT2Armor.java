@@ -1,4 +1,4 @@
-package com.brandon3055.draconicevolution.common.items.armor;
+package br.com.finalcraft.draconicevolution.items.armor;
 
 import com.brandon3055.brandonscore.BrandonsCore;
 import com.brandon3055.brandonscore.common.utills.InfoHelper;
@@ -8,6 +8,7 @@ import com.brandon3055.draconicevolution.DraconicEvolution;
 import com.brandon3055.draconicevolution.common.ModItems;
 import com.brandon3055.draconicevolution.common.entity.EntityPersistentItem;
 import com.brandon3055.draconicevolution.common.handler.BalanceConfigHandler;
+import com.brandon3055.draconicevolution.common.items.armor.ICustomArmor;
 import com.brandon3055.draconicevolution.common.items.tools.baseclasses.ToolBase;
 import com.brandon3055.draconicevolution.common.lib.References;
 import com.brandon3055.draconicevolution.common.utills.IConfigurableItem;
@@ -46,8 +47,12 @@ import java.util.List;
  * Created by Brandon on 3/07/2014.
  */
 @Optional.InterfaceList(
-        value = { @Optional.Interface(iface = "thaumcraft.api.IVisDiscountGear", modid = "Thaumcraft"),
-                @Optional.Interface(iface = "thaumcraft.api.IWarpingGear", modid = "Thaumcraft"), })
+        value = {
+                @Optional.Interface(iface = "thaumcraft.api.IVisDiscountGear", modid = "Thaumcraft"),
+                @Optional.Interface(iface = "thaumcraft.api.IWarpingGear", modid = "Thaumcraft"),
+                @Optional.Interface(iface = "thaumcraft.api.IGoggles", modid = "Thaumcraft"),
+        }
+)
 public class NeutroniumT2Armor extends ItemArmor implements ISpecialArmor, IConfigurableItem, IInventoryTool, IUpgradableItem,
         ICustomArmor, IVisDiscountGear, IWarpingGear {
 

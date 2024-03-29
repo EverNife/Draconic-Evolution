@@ -1,6 +1,6 @@
 package com.brandon3055.draconicevolution.common;
 
-import com.brandon3055.draconicevolution.common.items.armor.NeutroniumT2Armor;
+import br.com.finalcraft.draconicevolution.items.armor.NeutroniumT2Armor;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor;
