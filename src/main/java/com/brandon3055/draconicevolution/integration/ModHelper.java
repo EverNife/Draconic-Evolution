@@ -1,14 +1,12 @@
 package com.brandon3055.draconicevolution.integration;
 
+import com.brandon3055.draconicevolution.common.items.armor.CustomArmorHandler.ArmorSummery;
+import cpw.mods.fml.common.Loader;
+import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
-
-import com.brandon3055.draconicevolution.common.items.armor.CustomArmorHandler.ArmorSummery;
-
-import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 /**
  * Created by brandon3055 on 29/9/2015.
@@ -39,8 +37,6 @@ public class ModHelper {
         if (Loader.isModLoaded("bartworks")) try {
             bwores = Class.forName("com.github.bartimaeusnek.bartworks.system.material.BW_MetaGeneratedOreTE");
         } catch (ClassNotFoundException e) {}
-
-        ModHookEventHelper.initialize();
     }
 
     public static boolean isHoldingCleaver(EntityPlayer player) {

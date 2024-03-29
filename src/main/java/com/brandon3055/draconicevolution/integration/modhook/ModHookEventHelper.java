@@ -1,4 +1,4 @@
-package com.brandon3055.draconicevolution.integration;
+package com.brandon3055.draconicevolution.integration.modhook;
 
 import com.brandon3055.draconicevolution.common.utills.LogHelper;
 import com.gamerforea.eventhelper.util.EventUtils;
@@ -10,28 +10,23 @@ import javax.annotation.Nonnull;
 
 public class ModHookEventHelper {
 
-   private static boolean initialized = false;
-
-   public static void initialize() {
-      initialized = Loader.isModLoaded("EventHelper");
-      if(initialized) {
+   private static Boolean isPresent = null;
+   private static boolean isPresent(){
+      if (isPresent == null && (isPresent = Loader.isModLoaded("EventHelper"))){
          LogHelper.info("[EventHelper DirectInjection] - EventHelper has been enabled on DraconicEvolution!");
       }
-   }
-
-   public static boolean isInitialized() {
-      return initialized;
+      return isPresent;
    }
 
    public static boolean cantBreak(@Nonnull EntityPlayer player, double x, double y, double z){
-      if (initialized){
+      if (isPresent()){
          return EventUtils.cantBreak(player,x,y,z);
       }
       return false;
    }
 
    public static boolean cantAttack(Entity attacker, Entity victim){
-      if (true){
+      if (isPresent()){
          return EventUtils.cantDamage(attacker,victim);
       }
       return false;

@@ -2,7 +2,7 @@ package com.brandon3055.draconicevolution.common.blocks;
 
 import java.util.Random;
 
-import com.brandon3055.draconicevolution.integration.ModHookEventHelper;
+import com.brandon3055.draconicevolution.integration.modhook.ModHookEventHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
