@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.brandon3055.draconicevolution.integration.modhook.ModHookEnderIO;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MaterialLiquid;
 import net.minecraft.client.Minecraft;
@@ -293,8 +294,12 @@ public abstract class MiningTool extends ToolBase implements IUpgradableItem {
 
             block.onBlockHarvested(world, x, y, z, meta, player);
 
-            ArrayList<ItemStack> drops = block
-                    .getDrops(world, x, y, z, meta, EnchantmentHelper.getFortuneModifier(player));
+            int fortuneLevel = EnchantmentHelper.getFortuneModifier(player);
+
+            ArrayList<ItemStack> drops = block.getDrops(world, x, y, z, meta, fortuneLevel);
+
+            ModHookEnderIO.handleEnderIoSmelting(player, stack, drops, fortuneLevel);
+
             for (ItemStack is : drops) {
                 if (!player.inventory.addItemStackToInventory(is)) {
                     if (world.getGameRules().getGameRuleBooleanValue("doTileDrops") && !world.restoringBlockSnapshots) {
