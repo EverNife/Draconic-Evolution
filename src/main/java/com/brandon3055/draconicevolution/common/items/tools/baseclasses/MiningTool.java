@@ -171,7 +171,7 @@ public abstract class MiningTool extends ToolBase implements IUpgradableItem {
                 break;
         }
 
-        if (IConfigurableItem.ProfileHelper.getBoolean(stack, References.BASE_SAFE_AOE, false)) {
+        if (true || IConfigurableItem.ProfileHelper.getBoolean(stack, References.BASE_SAFE_AOE, false)) {
             for (int xPos = x - xMin; xPos <= x + xMax; xPos++) {
                 for (int yPos = y + yOffset - yMin; yPos <= y + yOffset + yMax; yPos++) {
                     for (int zPos = z - zMin; zPos <= z + zMax; zPos++) {
