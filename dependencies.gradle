@@ -26,4 +26,6 @@ dependencies {
     compileOnly("curse.maven:computercraft-67504:2269339") {
         transitive = false
     }
+
+    compileOnly fileTree(dir: 'libs', include: '*.jar')
 }

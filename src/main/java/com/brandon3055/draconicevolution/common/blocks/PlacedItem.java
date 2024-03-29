@@ -2,6 +2,7 @@ package com.brandon3055.draconicevolution.common.blocks;
 
 import java.util.Random;
 
+import com.brandon3055.draconicevolution.integration.ModHookEventHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -186,8 +187,12 @@ public class PlacedItem extends BlockDE {
             }
             tile.rotation += 5.625F;
         } else {
-            if (!world.isRemote) breakBlock(world, x, y, z, this, world.getBlockMetadata(x, y, z));
-            world.setBlockToAir(x, y, z);
+            if (!world.isRemote) {
+                if (!ModHookEventHelper.cantBreak(player,x,y,z)){
+                    breakBlock(world, x, y, z, this, world.getBlockMetadata(x, y, z));
+                    world.setBlockToAir(x, y, z);
+                }
+            }
         }
         world.markBlockForUpdate(x, y, z);
         return true;

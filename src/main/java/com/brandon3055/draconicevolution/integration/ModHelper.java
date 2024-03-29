@@ -39,6 +39,8 @@ public class ModHelper {
         if (Loader.isModLoaded("bartworks")) try {
             bwores = Class.forName("com.github.bartimaeusnek.bartworks.system.material.BW_MetaGeneratedOreTE");
         } catch (ClassNotFoundException e) {}
+
+        ModHookEventHelper.initialize();
     }
 
     public static boolean isHoldingCleaver(EntityPlayer player) {
