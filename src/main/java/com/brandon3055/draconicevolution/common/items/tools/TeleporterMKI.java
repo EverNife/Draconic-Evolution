@@ -48,38 +48,38 @@ public class TeleporterMKI extends ItemDE {
 
     @Override
     public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
-        if (getLocation(stack) == null) {
-            if (player.worldObj.isRemote)
-                player.addChatMessage(new ChatComponentTranslation("msg.teleporterUnSet.txt"));
-            return true;
-        }
+//        if (getLocation(stack) == null) {
+//            if (player.worldObj.isRemote)
+//                player.addChatMessage(new ChatComponentTranslation("msg.teleporterUnSet.txt"));
+//            return true;
+//        }
+//
+//        if (entity instanceof EntityPlayer) {
+//            if (player.worldObj.isRemote)
+//                player.addChatMessage(new ChatComponentTranslation("msg.teleporterPlayerT1.txt"));
+//            return true;
+//        }
+//
+//        if (entity instanceof IBossDisplayData || !(entity instanceof EntityLiving)) return true;
+//
+//        if (player.getHealth() > 2 || player.capabilities.isCreativeMode) {
+//            stack.damageItem(1, player);
+//            if (!player.capabilities.isCreativeMode) player.setHealth(player.getHealth() - 2);
+//            getLocation(stack).sendEntityToCoords(entity);
+//            if (player.worldObj.isRemote) player.addChatMessage(
+//                    new ChatComponentText(
+//                            new ChatComponentTranslation("msg.teleporterSentMob.txt").getFormattedText() + " x:"
+//                                    + (int) getLocation(stack).getXCoord()
+//                                    + " y:"
+//                                    + (int) getLocation(stack).getYCoord()
+//                                    + " z:"
+//                                    + (int) getLocation(stack).getZCoord()
+//                                    + " Dimension: "
+//                                    + getLocation(stack).getDimensionName()));
+//        } else if (player.worldObj.isRemote)
+//            player.addChatMessage(new ChatComponentTranslation("msg.teleporterLowHealth.txt"));
 
-        if (entity instanceof EntityPlayer) {
-            if (player.worldObj.isRemote)
-                player.addChatMessage(new ChatComponentTranslation("msg.teleporterPlayerT1.txt"));
-            return true;
-        }
-
-        if (entity instanceof IBossDisplayData || !(entity instanceof EntityLiving)) return true;
-
-        if (player.getHealth() > 2 || player.capabilities.isCreativeMode) {
-            stack.damageItem(1, player);
-            if (!player.capabilities.isCreativeMode) player.setHealth(player.getHealth() - 2);
-            getLocation(stack).sendEntityToCoords(entity);
-            if (player.worldObj.isRemote) player.addChatMessage(
-                    new ChatComponentText(
-                            new ChatComponentTranslation("msg.teleporterSentMob.txt").getFormattedText() + " x:"
-                                    + (int) getLocation(stack).getXCoord()
-                                    + " y:"
-                                    + (int) getLocation(stack).getYCoord()
-                                    + " z:"
-                                    + (int) getLocation(stack).getZCoord()
-                                    + " Dimension: "
-                                    + getLocation(stack).getDimensionName()));
-        } else if (player.worldObj.isRemote)
-            player.addChatMessage(new ChatComponentTranslation("msg.teleporterLowHealth.txt"));
-
-        return true;
+        return false;
     }
 
     @Override

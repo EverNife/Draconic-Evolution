@@ -49,41 +49,41 @@ public class TeleporterMKII extends TeleporterMKI implements IHudDisplayItem {
 
     @Override
     public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
-        World world = player.worldObj;
-        int fuel = ItemNBTHelper.getInteger(stack, "Fuel", 0);
+//        World world = player.worldObj;
+//        int fuel = ItemNBTHelper.getInteger(stack, "Fuel", 0);
+//
+//        if (getLocation(stack) == null) {
+//            if (world.isRemote) FMLNetworkHandler.openGui(
+//                    player,
+//                    DraconicEvolution.instance,
+//                    GuiHandler.GUIID_TELEPORTER,
+//                    world,
+//                    (int) player.posX,
+//                    (int) player.posY,
+//                    (int) player.posZ);
+//            return true;
+//        }
+//
+//        if (!player.capabilities.isCreativeMode && fuel <= 0) {
+//            if (world.isRemote) player.addChatMessage(new ChatComponentTranslation("msg.teleporterOutOfFuel.txt"));
+//            return true;
+//        }
+//
+//        if (entity instanceof EntityPlayer) {
+//            if (entity.isSneaking()) {
+//                getLocation(stack).sendEntityToCoords(entity);
+//                if (!player.capabilities.isCreativeMode && fuel > 0) ItemNBTHelper.setInteger(stack, "Fuel", fuel - 1);
+//            } else {
+//                if (world.isRemote)
+//                    player.addChatMessage(new ChatComponentTranslation("msg.teleporterPlayerConsent.txt"));
+//            }
+//            return true;
+//        } else if (entity instanceof EntityLiving) {
+//            getLocation(stack).sendEntityToCoords(entity);
+//            if (!player.capabilities.isCreativeMode && fuel > 0) ItemNBTHelper.setInteger(stack, "Fuel", fuel - 1);
+//        }
 
-        if (getLocation(stack) == null) {
-            if (world.isRemote) FMLNetworkHandler.openGui(
-                    player,
-                    DraconicEvolution.instance,
-                    GuiHandler.GUIID_TELEPORTER,
-                    world,
-                    (int) player.posX,
-                    (int) player.posY,
-                    (int) player.posZ);
-            return true;
-        }
-
-        if (!player.capabilities.isCreativeMode && fuel <= 0) {
-            if (world.isRemote) player.addChatMessage(new ChatComponentTranslation("msg.teleporterOutOfFuel.txt"));
-            return true;
-        }
-
-        if (entity instanceof EntityPlayer) {
-            if (entity.isSneaking()) {
-                getLocation(stack).sendEntityToCoords(entity);
-                if (!player.capabilities.isCreativeMode && fuel > 0) ItemNBTHelper.setInteger(stack, "Fuel", fuel - 1);
-            } else {
-                if (world.isRemote)
-                    player.addChatMessage(new ChatComponentTranslation("msg.teleporterPlayerConsent.txt"));
-            }
-            return true;
-        } else if (entity instanceof EntityLiving) {
-            getLocation(stack).sendEntityToCoords(entity);
-            if (!player.capabilities.isCreativeMode && fuel > 0) ItemNBTHelper.setInteger(stack, "Fuel", fuel - 1);
-        }
-
-        return true;
+        return false;
     }
 
     @Override
