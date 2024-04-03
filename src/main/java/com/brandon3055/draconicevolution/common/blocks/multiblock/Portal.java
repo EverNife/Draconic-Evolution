@@ -7,6 +7,7 @@ import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.boss.IBossDisplayData;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
@@ -100,6 +101,9 @@ public class Portal extends BlockDE implements ITileEntityProvider {
     @Override
     public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
         if (world.isRemote) {
+            return;
+        }
+        if (entity instanceof IBossDisplayData){
             return;
         }
         TileDislocatorReceptacle receptacle = getMaster(world, x, y, z);
