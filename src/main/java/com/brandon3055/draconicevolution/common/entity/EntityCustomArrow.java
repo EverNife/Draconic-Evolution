@@ -2,6 +2,7 @@ package com.brandon3055.draconicevolution.common.entity;
 
 import java.util.List;
 
+import com.gamerforea.eventhelper.util.EventUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -476,15 +477,18 @@ public class EntityCustomArrow extends EntityArrow {
     public void onHitEntityLiving(EntityLivingBase entityLivingBase) {}
 
     public void onHitAnything() {
-        if (bowProperties.explosionPower > 0 && !worldObj.isRemote) {
-            worldObj.createExplosion(
-                    this,
-                    prevPosX,
-                    prevPosY,
-                    prevPosZ,
-                    bowProperties.explosionPower,
-                    ConfigHandler.bowBlockDamage);
-            setDead();
+        if (bowProperties.explosionPower > 0 && !worldObj.isRemote && this.shootingEntity instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer) this.shootingEntity;
+            if (!EventUtils.cantBreak(player, (int) posX, (int) posY, (int) posZ)){
+                worldObj.createExplosion(
+                        this,
+                        prevPosX,
+                        prevPosY,
+                        prevPosZ,
+                        bowProperties.explosionPower,
+                        ConfigHandler.bowBlockDamage);
+                setDead();
+            }
         }
         if (bowProperties.shockWavePower > 0 && !worldObj.isRemote) {
             DraconicEvolution.network.sendToAllAround(
