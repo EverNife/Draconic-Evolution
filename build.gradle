@@ -4,4 +4,4 @@ plugins {
     id 'com.gtnewhorizons.gtnhconvention'
 }
 
-version = "1.3.2-GTNH-evernifeV13"
+version = "1.3.9-GTNH-evernifeV13"
